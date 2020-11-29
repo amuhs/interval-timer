@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="controls">
+      <h1>Interval Timer</h1>
+      <form>
+        <label for="interval-num">Number of Intervals: </label>
+        <input id="interval-num" name="interval-num" type="number" min="0"placeholder="0"></input>
+
+        <label for="warm-up">Warm Up Time: </label>
+        <input id="warm-up" name="warm-up" type="number" min="0" placeholder="0"></input>
+
+        <label for="on">Time On: </label>
+        <input id="on" name="on" type="number" min="0" placeholder="0"></input>
+
+        <label for="off">Time Off: </label>
+        <input id="off" name="off" type="number" min="0" placeholder="0"></input>
+
+        <label for="cool-down">Cool Down: </label>
+        <input id="cool-down" name="cool-down" type="number" min="0" placeholder="0"></input>
+
+        <button id="start-timer-btn" onClick="beginTimer()" type="button">Start Timer</button>
+      </form>
+    </div>
+
+    <div id="current-action">
+      <h3 id="current-action-name"></h3>
+      <h1 id="current-action-time"></h1>
+    </div>
+    <div id="next-action">
+      <h3 id="next-action-name"></h3>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
