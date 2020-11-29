@@ -1,3 +1,10 @@
+const intervalParam = "i";
+const warmUpParam = "w";
+const onParam = "on";
+const offParam = "off";
+const coolDownParam = "c";
+
+
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -37,7 +44,7 @@ class Timer {
         }
         for (let i = 0; i < this.intervalNumber; i++) {
             this.actions[`exercise-${i}`] = {
-                name: "Exercise",
+                name: `Exercise`,
                 time: this.timeOn,
             };
             this.actions[`break-${i}`] = { name: "Break", time: this.timeOff };
@@ -66,16 +73,16 @@ class Timer {
             switch (actionPart) {
                 case "warm":
                 case "cool":
-                    document.body.style.backgroundColor = "orange";
+                    this.currActionTimeElement.style.color = "orange";
                     break;
                 case "exercise":
-                    document.body.style.backgroundColor = "green";
+                    this.currActionTimeElement.style.color = "green";
                     break;
                 case "break":
-                    document.body.style.backgroundColor = "red";
+                    this.currActionTimeElement.style.color = "red";
                     break;
                 default:
-                    document.body.style.backgroundColor = "white";
+                    this.currActionTimeElement.style.color = "white";
                     break;
             }
 
@@ -111,11 +118,11 @@ function beginTimer() {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-const intervalNum = urlParams.get("intNum");
-const warmUp = urlParams.get("warmup");
-const onTime = urlParams.get("on");
-const offTime = urlParams.get("off");
-const coolDown = urlParams.get("cooldown");
+const intervalNum = urlParams.get(intervalParam);
+const warmUp = urlParams.get(warmUpParam);
+const onTime = urlParams.get(onParam);
+const offTime = urlParams.get(offParam);
+const coolDown = urlParams.get(coolDownParam);
 
 if (intervalNum) {
     document.getElementById("interval-num").value = intervalNum;

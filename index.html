@@ -1,41 +1,129 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link  rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css"
+    />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </head>
 
   <body>
-    <div class="controls">
-      <h1>Interval Timer</h1>
-      <form>
-        <label for="interval-num">Number of Intervals: </label>
-        <input id="interval-num" name="interval-num" type="number" min="0"placeholder="0"></input>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Interval Timer</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="">About</a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Interval Timer</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">About</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <form>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input
+                class="mdl-textfield__input"
+                type="text"
+                pattern="^\d+$"
+                id="interval-num"
+              />
+              <label class="mdl-textfield__label" for="interval-num">Interval count...</label>
+              <span class="mdl-textfield__error">Input is not an integer >= 0!</span>
+            </div>
 
-        <label for="warm-up">Warm Up Time: </label>
-        <input id="warm-up" name="warm-up" type="number" min="0" placeholder="0"></input>
+            <br />
 
-        <label for="on">Time On: </label>
-        <input id="on" name="on" type="number" min="0" placeholder="0"></input>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input
+                class="mdl-textfield__input"
+                type="text"
+                pattern="^\d+$"
+                id="warm-up"
+              />
+              <label class="mdl-textfield__label" for="warm-up">Warm up time...</label>
+              <span class="mdl-textfield__error">Input is not an integer >= 0!</span>
+            </div>
 
-        <label for="off">Time Off: </label>
-        <input id="off" name="off" type="number" min="0" placeholder="0"></input>
+            <br />
 
-        <label for="cool-down">Cool Down: </label>
-        <input id="cool-down" name="cool-down" type="number" min="0" placeholder="0"></input>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input
+                class="mdl-textfield__input"
+                type="text"
+                pattern="^\d+$"
+                id="on"
+              />
+              <label class="mdl-textfield__label" for="on">Time on...</label>
+              <span class="mdl-textfield__error">Input is not an integer >= 0!</span>
+            </div>
 
-        <button id="start-timer-btn" onClick="beginTimer()" type="button">Start Timer</button>
-      </form>
+            <br />
+
+            <div class="mdl-textfield mdl-js-textfield">
+              <input
+                class="mdl-textfield__input"
+                type="text"
+                pattern="^\d+$"
+                id="off"
+              />
+              <label class="mdl-textfield__label" for="off">Time off...</label>
+              <span class="mdl-textfield__error">Input is not an integer >= 0!</span>
+            </div>
+
+            <br />
+
+            <div class="mdl-textfield mdl-js-textfield">
+              <input
+                class="mdl-textfield__input"
+                type="text"
+                pattern="^\d+$"
+                id="cool-down"
+              />
+              <label class="mdl-textfield__label" for="cool-down">Cool down time...</label>
+              <span class="mdl-textfield__error">Input is not an integer >= 0!</span>
+            </div>
+
+            <br />
+
+            <button
+              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+              id="start-timer-btn"
+              onClick="beginTimer()"
+              type="button"
+            >
+              Start Timer
+            </button>
+          </form>
+
+          <div id="current-action">
+            <h3 id="current-action-name" class="mdl-typography--display-2"></h3>
+            <h1 id="current-action-time" class="mdl-typography--display-4"></h1>
+          </div>
+          <div id="next-action">
+            <h3 id="next-action-name"></h3>
+          </div>
+
+        </div>
+      </main>
     </div>
-
-    <div id="current-action">
-      <h3 id="current-action-name"></h3>
-      <h1 id="current-action-time"></h1>
-    </div>
-    <div id="next-action">
-      <h3 id="next-action-name"></h3>
-    </div>
-
     <script src="app.js"></script>
   </body>
 </html>
